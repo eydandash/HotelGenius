@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+
+</head>
+<body>
+
+<div class="pgheader">
+    <h2>Hotel Genius</h2>
+</div>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6" id="leftpart">
+
+            <ul>
+                <br>
+                <li>Upload your dirty hotel data</li>
+                <li>Get a quick overview of data quality through a customised session report</li>
+                <li>Extract uncleaned data</li>
+                <li>Extract cleaned data</li>
+
+            </ul>
+        </div>
+        <div class="col-md-6" id="Login-Box">
+        <div>
+            <form action="" method="post">
+            {% csrf_token %}
+
+                <br>
+                <label for="username"><h3>Username:</h3></label>
+                <br>
+                <input type="text" name="username" placeholder="Enter full name" maxlength="100" required />
+                <br>
+                <label for="client"><h3>Client:</h3></label>
+                <br>
+                <input type="text" name="client" placeholder="Enter client's name" maxlength="100" required />
+                <br>
+
+                <input type="submit" value="START" class="start">
+            </form></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
+
+</body>
+</html>

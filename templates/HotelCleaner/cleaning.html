@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cleaning..</title>
+    <link rel="stylesheet" href="{% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+
+    <div class="pgheader">
+        <h2>Hotel Genius</h2>
+    </div>
+    <br>
+    <div class="row" id="details">
+        <div class="col-lg-4">
+            <h4>{{ sessionClient }}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>{% now "SHORT_DATE_FORMAT" %}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>Session: {{ key }}</h4>
+        </div>
+    </div>
+    <div class="rectangle2"></div>
+    <br>
+    <div class="col-md-6 col-md-offset-3">
+    <div class="r4">
+        <h5>DB Connection Established Successfully</h5>
+        <br>
+        <h5>Data Cleaning in Progress</h5>
+        <br>
+        <p>FINISHED</p>
+        <br>
+         <form method="get" action="/report/">
+          {% csrf_token %}
+            <button class="btn btn-primary" id="getreport">Get Report</button>
+        </form>
+     </div>
+
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
+
+</body>
+</html>

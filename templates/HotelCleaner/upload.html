@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Data</title>
+     <link rel="stylesheet" href="{% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+</head>
+<body>
+
+    <div class="pgheader">
+        <h2>Hotel Genius</h2>
+    </div>
+    <br>
+    <div class="row" id="details">
+        <div class="col-lg-4">
+            <h4>{{ sessionClient }}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>{% now "SHORT_DATE_FORMAT" %}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>Session: {{ key }}</h4>
+        </div>
+    </div>
+    <div class="rectangle2"></div>
+    <div class="r3">Please Upload your Data in CSV Format</div>
+    <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label" id="file">File: </label>
+            <div class="col-md-8">
+                <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-md-offset-3" style="margin-bottom:10px;">
+                <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" id="cleanbtn">Clean Data</button>
+        </div>
+    </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
+
+</body>
+</html>

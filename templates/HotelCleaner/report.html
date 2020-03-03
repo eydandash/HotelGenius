@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Report</title>
+    <link rel="stylesheet" href="{% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <div class="pgheader">
+        <h2>Hotel Genius</h2>
+    </div>
+    <br>
+    <div class="row" id="details">
+        <div class="col-lg-4">
+            <h4>{{ sessionClient }}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4>{% now "SHORT_DATE_FORMAT" %}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h4> Session: {{ key }}</h4>
+        </div>
+    </div>
+    <div class="rectangle2"><h3>Session Ended</h3></div>
+    <br>
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" action="">
+                {% csrf_token %}
+                <button class="btn btn-primary" name="downloadbtn1" id="downloadbtn">Download Cleaned Data</button>
+                <br>
+                <button class="btn btn-primary" name="downloadbtn2" id="downloadbtn">Download Uncleaned Data</button>
+            </form>
+        </div>
+        <div class="col-lg-6" id="sreport">
+        <h2>Quick Review</h2>
+            <ul>
+                <li>Most Repeated City: {{ mcc }}</li>
+                <li>Most Repeated Country: {{ mcco }}</li>
+                <li>Total Number Of Records: {{ dhcount }}</li>
+                <li>Number Of Cleaned Records: {{ chcount }}</li>
+                <li>Number Of Uncleaned Records: {{ uchCount }}</li>
+                <li>Percentage Cleaned: {{ cp }} % </li>
+                <li>Percentage Uncleaned: {{ ucp }}%</li>
+            </ul>
+        </div>
+
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}"></script>
+
+</body>
+</html>
